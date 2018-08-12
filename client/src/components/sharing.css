@@ -1,0 +1,52 @@
+div {
+    background-color:#;
+
+}
+ body {
+    background-color: grey;
+}
+
+h1 {
+    font-size: large;
+}
+
+h2 {
+    font-size: small;
+}
+
+table {
+  border: solid 1px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px
+}
+
+thead {
+  background-color: rgba(0, 0, 0, 0.39);
+  color: white;
+
+}
+
+table {
+  border: solid;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.span5 {
+  background-color: #0099FF;
+}
+
+.center-button {
+  text-align: center;
+  border: solid;
+}
+

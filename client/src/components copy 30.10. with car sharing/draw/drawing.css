@@ -1,0 +1,199 @@
+.btn {
+    margin: 5px;
+}
+
+.point {
+    width: 170px;
+    height: 170px;
+}
+
+#draw-canvas {
+    position: relative;
+    margin-top: 20px;
+    background-color: blue;
+    background-repeat: no-repeat;
+    background-image: url('https://us.123rf.com/450wm/davidscar/davidscar1503/davidscar150300020/37560967-a-yellow-australia-map-isolated-on-a-black-background.jpg?ver=6');   
+    width: 450px;
+    height: 402px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#svg {
+    position: relative;
+    left: 40px;
+    top: 20px;
+}
+
+#line {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#path {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 0;
+    display: none;
+}
+
+.move #svg #line #path {
+
+    display: block;
+    transform: scale(1.5);
+    -webkit-animation: draw-it 4s linear forwards;
+}
+
+@-webkit-keyframes draw-it {
+    from {
+        opacity: 1;
+        display: block;
+        stroke-dashoffset: 800;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* SVG 2 */
+
+#svg2 {
+    position: relative;
+    left: 340px;
+    top: -150px;
+}
+
+#path2 {
+
+    display: none;
+    opacity: 0;
+    transform: scale(0.5)
+}
+
+.move #svg2 #line2 #path2 {
+
+    display: block;
+    -webkit-animation: draw-it2 0.5s linear forwards;
+    animation-delay: 1.4s;
+}
+
+@-webkit-keyframes draw-it2 {
+    from {
+        opacity: 0;
+        display: block;
+        
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* SVG 3 */
+
+#svg3 {
+    position: relative;
+    left: 125px;
+    top: -330px;
+}
+
+#path3 {
+    display: none;
+    opacity: 0;
+    transform: scale(0.5)
+}
+
+.move #svg3 #line3 #path3 {
+    display: block;
+    -webkit-animation: draw-it2 0.5s linear forwards;
+    animation-delay: 2.1s;
+}
+
+/* SVG 4 */
+
+#svg4 {
+    position: relative;
+    left: 355px;
+    top: -400px;
+}
+#path4 {
+    display: none;
+    opacity: 0;
+    transform: scale(0.5)
+}
+.move #svg4 #line4 #path4 {
+    display: block;
+    -webkit-animation: draw-it2 0.5s linear forwards;
+    animation-delay: 2.7s;
+}
+/* SVG 5 */
+#svg5 {
+    position: relative;
+    left: 185px;
+    top: -365px;
+}
+#path5 {
+    display: none;
+    opacity: 0;
+    transform: scale(0.5)
+}
+.move #svg5 #line5 #path5 {
+    display: block;
+    -webkit-animation: draw-it2 0.5s linear forwards;
+    animation-delay: 3.0s;
+}
+
+/* SVG 6 */
+
+#svg6 {
+    position: relative;
+    left: 185px;
+    top: -439px;
+}
+#path6 {
+    display: none;
+    opacity: 0;
+    transform: scale(0.5)
+}
+.move #svg6 #line6 #path6 {
+    display: block;
+    -webkit-animation: draw-it2 0.5s linear forwards;
+    animation-delay: 3.5s;
+}
+
+/* SVG 7 - Line ToDo */
+
+#svg7 {
+    position: relative;
+    left: -50px;
+    top: -966px;
+}
+
+#line7 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#path7 {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 0;
+    transform: scale(1.4);
+    display: block;
+    opacity: 0;
+}
+
+.move #svg7 #line7 #path7 {
+
+    -webkit-animation: ToDo 4s linear forwards infinite;
+    animation-delay: 4s;
+}
+
+@-webkit-keyframes ToDo {
+    from {
+        opacity: 1;
+        display: block;
+        stroke-dashoffset: 1200;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}

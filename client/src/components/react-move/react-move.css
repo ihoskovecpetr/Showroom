@@ -1,0 +1,47 @@
+p {
+    color: white;
+    float: left;
+    padding-right: 20px;
+}
+
+#svg {
+    width: 800px;
+    height: 400px;
+    background-color: transparent;
+}
+
+path {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 100;
+    stroke: aqua;
+}
+
+.svg1 {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color:black;
+    background-image: url('https://us.123rf.com/450wm/davidscar/davidscar1503/davidscar150300020/37560967-a-yellow-australia-map-isolated-on-a-black-background.jpg?ver=6');   
+    transition: background-image 2s;
+    transition-delay: 5s;
+}
+
+#particles {
+
+    width: '90%';
+    height: '50%';
+}
+
+#loginParticles {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background-color: rgba(182, 181, 181, 0.952);
+    border: solid 2px grey;
+    top: -450px;
+    left: -200px;
+}
+
+#info {
+    margin: 10px;
+}
+

@@ -1,3 +1,5 @@
+//@ts-check
+
 import React, { Component } from 'react';
 import './sharing.css';
 import TodosListHeader from "./sharing/TodosListHeader";
@@ -23,20 +25,20 @@ componentDidMount(){
     return (
     <div className="container">
 
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h1 class="">Rezervace Car4way</h1>
-  <Row> <Col xs={60} md={50}> <Image src="https://www.car4way.cz/autokdykoliv/images/banner-2.png" rounded /> </Col> </Row>
+  <div className="row">
+    <div className="col-md-12 text-center">
+
+  <Row> <Col xs={60} md={50}> <Image src="https://www.car4way.cz/autokdykoliv/images/banner-2.png" /> </Col> </Row>
 
 
-      <div class="breadcrumbs">
-        <p class="mb-0 text-white"><a class="text-white" >Rezervace</a>  /  <span class="text-success" href="#">Pravidla</span></p>
+      <div className="breadcrumbs">
+        <p className="mb-0 text-white"><a className="text-white" >Reservation</a>  /  <span class="text-success" href="#">Rules</span></p>
       </div>
     </div>
   </div>
      <div className="row">
       <div className="span5">
-        <table class="table table-striped table-condensed table-dark">
+        <table className="table table-striped table-condensed table-dark">
           <TodosListHeader />
           <Ukoly users={this.state.users} 
              //toggleTask={this.toggleTask.bind(this)} 
@@ -78,22 +80,27 @@ createTask(task, task2, task3, task4, task5) {
 
 
 saveTask(ID, oldTask1, newTask1, oldTask2, newTask2, oldTask3, newTask3, oldTask4, newTask4, oldTask5, newTask5) {
-  var foundTodo = _.find(this.state.users, todo => todo.name === oldTask1);
-  foundTodo.name = newTask1;
-  this.setState({ users: this.state.users});
+    var foundTodo = _.find(this.state.users, todo => todo.name === oldTask1);
+    foundTodo.name = newTask1;
+    this.setState({ users: this.state.users});
+
     var foundTodo = _.find(this.state.users, todo => todo.DateOd === oldTask2);
-  foundTodo.DateOd = newTask2;
-  this.setState({ users: this.state.users});
-      var foundTodo = _.find(this.state.users, todo => todo.TimeOd === oldTask3);
-  foundTodo.TimeOd = newTask3;
-  this.setState({ users: this.state.users});
-      var foundTodo = _.find(this.state.users, todo => todo.DateDo === oldTask4);
-  foundTodo.DateDo = newTask4;
-  this.setState({ users: this.state.users});
-      var foundTodo = _.find(this.state.users, todo => todo.TimeDo === oldTask5);
-  foundTodo.TimeDo = newTask5;
-  this.setState({ users: this.state.users});
-console.log(this.state.users);
+    foundTodo.DateOd = newTask2;
+    this.setState({ users: this.state.users});
+    
+    var foundTodo = _.find(this.state.users, todo => todo.TimeOd === oldTask3);
+    foundTodo.TimeOd = newTask3;
+    this.setState({ users: this.state.users});
+     
+    var foundTodo = _.find(this.state.users, todo => todo.DateDo === oldTask4);
+    foundTodo.DateDo = newTask4;
+    this.setState({ users: this.state.users});
+    
+    var foundTodo = _.find(this.state.users, todo => todo.TimeDo === oldTask5);
+    foundTodo.TimeDo = newTask5;
+    this.setState({ users: this.state.users});
+
+      console.log(this.state.users);
           fetch('/users/update', {
           method: 'POST',
           headers: {
@@ -107,22 +114,28 @@ console.log(this.state.users);
                                 DateDoBack: newTask4,
                                 TimeDoBack: newTask5
                                 }),
-            });
-}
+              }
+              // callback - confirm or catch error..
+            );
+    }
 
-deleteTask(taskDelete, id) {
-  _.remove(this.state.users, todo => todo.ID === id);
-  this.setState({users: this.state.users});
+  deleteTask(taskDelete, id) {
 
-        fetch('/users/delete', {
-          method: 'POST',
-          headers: {
-          Accept: 'application/json',
-                  'Content-Type': 'application/json',
-                  },
-          body: JSON.stringify({"deleteID": id }),
-            });
-  }
-}
+//Deleting from state -----
+
+      _.remove(this.state.users, todo => todo.ID === id); 
+      this.setState({users: this.state.users});
+
+//Deleting from the DB ----
+            fetch('/users/delete', {      
+              method: 'POST',
+              headers: {
+              Accept: 'application/json',
+                      'Content-Type': 'application/json',
+                      },
+              body: JSON.stringify({"deleteID": id }),
+                });
+      }
+    }
 
 

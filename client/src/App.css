@@ -9,11 +9,18 @@
   margin-left: 40px;
 }
 
+.App-logo-freez {
+  height: 80px;
+  max-width: 200px;
+  margin-left: 40px;
+}
+
 .App-header {
   background-color: #222;
-  height: 250px;
   padding: 20px;
   color: white;
+  overflow-x: scroll;
+
 }
 
 .App-title {
@@ -52,7 +59,6 @@ ul.header li a {
   display: inline-block;
 }
 .content {
-
   padding: 20px;
 }
 .content h2 {

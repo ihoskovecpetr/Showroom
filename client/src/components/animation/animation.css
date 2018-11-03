@@ -1,0 +1,147 @@
+.container {
+    margin-top: 20px;
+    width: 800px;
+}
+
+.cat {
+
+    background-image: url('https://www.sketchappsources.com/resources/source-image/abstract-world-map.jpg');
+    z-index: -1;
+}
+
+#airplane {
+    position: relative;
+    float: left;
+    top: 0px;
+    display: none;
+}
+
+.move #airplane {
+    display: block;
+    animation: FlyAirplane 5s;
+}
+
+#holder {
+    height: 42px;
+    width: 42px;
+    float: right;
+    position: relative;
+}
+
+
+
+@keyframes  FlyAirplane{
+    0% {
+        
+        transform: translate(385px, -380px) rotate(80deg) scale(0.6);
+    }
+    10% {
+        transform: translate(385px, -380px) rotate(80deg) scale(0.6);
+    }
+
+    /* Dubai */
+    30% {
+        transform: translate(445px, -306px) rotate(80deg) scale(0.9);
+    }
+
+    /* India */
+    45% {
+        transform: translate(510px, -290px) rotate(60deg);
+    }
+
+    /* Malaisia */
+    70% {
+        transform: translate(565px, -270px) rotate(70deg);
+    }
+    95% {
+        transform: translate(660px, -185px) rotate(70deg) scale(0.6);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(660px, -185px) rotate(70deg) scale(0.6);
+        opacity: 0;
+        
+    }
+}
+
+
+.move .cat{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color:black;
+    background-image: url('https://us.123rf.com/450wm/davidscar/davidscar1503/davidscar150300020/37560967-a-yellow-australia-map-isolated-on-a-black-background.jpg?ver=6');   
+    transition: background-image 2s;
+    transition-delay: 5s;
+}
+
+ .canvas{
+     position: relative;
+     top: -649px;
+     width: 800px;
+     padding-left: 15px;
+     padding-right: 15px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ #logo {
+     position: relative;
+     top: 153px;
+     left: 438px;
+    /* border: solid 1px;  */
+    }
+#draw {
+   opacity: 0; 
+}
+
+.move #logo .layer #draw {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 0;
+    -webkit-animation: dash 4s linear forwards;
+    animation-delay: 8s;
+    stroke: aqua;
+    }
+
+    @-webkit-keyframes dash {
+        0% {
+            opacity: 1;
+            display: block;
+            stroke-dashoffset: 600;
+        }
+        50% {
+            
+            
+            stroke-dashoffset: 0;
+        }
+        100% {
+            
+            
+            stroke-dashoffset: 0;
+        }
+    }
+
+    #draw2 {
+        opacity: 0;
+    }
+    
+    .move #logo .layer #draw2 {
+        stroke-dasharray: 600;
+        stroke-dashoffset: 0;
+        -webkit-animation: dash 2s linear forwards;
+        animation-delay: 10s;
+        stroke: aqua;
+        }
+        
+        @-webkit-keyframes dash {
+            from {
+                opacity: 1;
+                display: block;
+                stroke-dashoffset: 600;
+            }
+            to {
+                
+                
+                stroke-dashoffset: 0;
+            }
+        }
+    

@@ -1,41 +1,45 @@
+//@ts-check
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import { Grid, Row , Col , Image , ListGroup , Button , ListGroupItem, FormControl } from 'react-bootstrap';
+import { Grid, Row , Col } from 'react-bootstrap';
 import { Route, NavLink, HashRouter} from "react-router-dom";
+
+import './App.css';
 import GeoBragger from './components/geobragger';
 import Game from './components/game';
 import RSS from './components/rss';
-import Sharing from './components/sharing';
+import Animation from './components/animation/animation';
+import Draw from './components/draw/drawing';
+import GoldCoast from './components/gold-coast/gold-coast';
+import ReactMove from './components/react-move/react-move';
+
 
 
 
 class App extends React.Component {
 
 
-  constructor(){
-    super();
-
+  constructor(props){
+    super(props);
     this.state = {
-      marker: [{lat: 49.95823690, lng: 15.91172000} ,{lat: 37, lng: 22} ,{lat: 45, lng: 23} ],
+      marker: [{lat: 49.95, lng: 15.91} ,{lat: 37, lng: 22} ,{lat: 45, lng: 23} ],  // DEL???????
       users: [],
-
     }
   }
 
   componentDidMount(){
 
-}
+  }
  
 
   render() {
 
 
     const style = {width: '100%', height: '50%'}
-
     var points = [
-    {lat: this.state.marker[0].lat, lng: this.state.marker[0].lng},
+    {lat: this.state.marker[0].lat, lng: this.state.marker[0].lng},   // DEL???????
     {lat: this.state.marker[1].lat, lng: this.state.marker[1].lng},
     ]
     var bounds = new this.props.google.maps.LatLngBounds();
@@ -47,38 +51,51 @@ class App extends React.Component {
     return (
 
       <div className="App">
+      <h1 className="App-title">Technology stack!</h1>
         <header className="App-header">
-        <h1 className="App-title">What do i use?</h1>
-
-        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Badge_js-strict.svg/2000px-Badge_js-strict.svg.png' className="App-logo" alt="logo" />
-          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/2000px-CSS3_logo_and_wordmark.svg.png' className="App-logo" alt="logo" />
-          <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' className="App-logo" alt="logo" />
-          <img src='https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png' className="App-logo" alt="logo" />
-          <img src='https://upload.wikimedia.org/wikipedia/ru/thumb/d/d3/Mysql.png/640px-Mysql.png' className="App-logo" alt="logo" />
-           <img src='https://cdn-images-1.medium.com/max/546/1*36D6oCrl2Fpif_8NzK2lYA.png' className="App-logo" alt="logo" />
-
-          <h1 className="App-title">Welcome</h1>
+        <Grid>
+        <Row>
+          
+          </Row>
+          <Row>
+            <Col>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' className="App-logo" alt="logo" />
+            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Badge_js-strict.svg/2000px-Badge_js-strict.svg.png' className="App-logo" alt="logo" />
+            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/2000px-CSS3_logo_and_wordmark.svg.png' className="App-logo" alt="logo" />
+            <img src='https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png' className="App-logo-freez" alt="logo" />
+            <img src='https://upload.wikimedia.org/wikipedia/ru/thumb/d/d3/Mysql.png/640px-Mysql.png' className="App-logo-freez" alt="logo" />
+              </Col>
+          </Row>
+          <Row>
+          <h1 className="App-title"> </h1>
+          </Row>
+          </Grid>
         </header>
-<HashRouter>
-        <div>
-          <h1></h1>
-          <ul className="header">
-            <li><NavLink to="/components/sharing">Car sharing app</NavLink></li>
-            <li><NavLink to="/components/geobragger">GeoBragger</NavLink></li>
-            <li><NavLink to="/components/game">Game</NavLink></li>
-            <li><NavLink to="/components/rss">RSS</NavLink></li>
-          </ul>
-          <div className="content">
-            <Route path="/components/sharing" component={Sharing}/>
-            <Route path="/components/geobragger" component={GeoBragger}/>
-            <Route path="/components/game" component={Game}/>
-            <Route path="/components/rss" component={RSS}/>
-          </div>
-        </div>
-</HashRouter>
-        
 
-
+        <HashRouter>
+                <div>
+                  <h1></h1>
+                  <ul className="header">
+                  <li><NavLink to="/gold-coast">Gold Coast</NavLink></li>
+                    <li><NavLink to="/geobragger">GeoBragger</NavLink></li>
+                    <li><NavLink to="/game">Game</NavLink></li>
+                    <li><NavLink to="/rss">RSS</NavLink></li>
+                    <li><NavLink to="/animation">Animation</NavLink></li>
+                    <li><NavLink to="/draw">Drawing</NavLink></li>
+                    <li><NavLink to="/react-move">React-Move</NavLink></li>
+                  </ul>
+                  <div className="content">
+                    <Route exact path="/" component={GoldCoast}/>
+                    <Route path="/gold-coast" component={GoldCoast}/>
+                    <Route path="/geobragger" component={GeoBragger}/>
+                    <Route path="/game" component={Game}/>
+                    <Route path="/rss" component={RSS}/>
+                    <Route path="/animation" component={Animation}/>
+                    <Route path="/draw" component={Draw}/>
+                    <Route path="/react-move" component={ReactMove}/>
+                  </div>
+                </div>
+        </HashRouter>
       </div>
     );
   }

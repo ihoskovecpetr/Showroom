@@ -10,12 +10,12 @@ export default class TodosListHeader extends React.Component {
             <thead class="thead-dark" >
             <tr>
                 <th scope="col">ID</th>
-                <th>Jméno</th>
-                <th>Datum Výpůjčky</th>
-                <th>čas Výpůjčky</th>
-                <th>Datum Návratu</th>
-                <th>čas Návratu</th>
-                <th>Akce</th>
+                <th>Name</th>
+                <th>Pick-up date</th>
+                <th>Pick-up Time</th>
+                <th>Return date</th>
+                <th>Return time</th>
+                <th>Action</th>
             </tr>
             </thead>
             );

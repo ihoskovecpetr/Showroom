@@ -13,11 +13,9 @@ class GeoBragger extends React.Component {
     this.poloha = this.poloha.bind(this),
     this.showPosition = this.showPosition.bind(this),
     this.createTask = this.createTask.bind(this),
-    this.onMarkerClick = this.onMarkerClick.bind(this),
     this.state = {
       marker: [{lat: 49.95, lng: 15.91} ,{lat: 37, lng: 22} ,{lat: 45, lng: 23} ],
       users: [],
-      showingInfo: false,
     }
   }
 
@@ -28,7 +26,8 @@ class GeoBragger extends React.Component {
 }
  
   poloha(){
-
+    console.log("this - - ")
+    console.log(this)
         if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
 
@@ -69,8 +68,6 @@ class GeoBragger extends React.Component {
           });
           this.setState({ users: this.state.users });
   console.log("Users po pridanim na tvrdo--" + this.state.users)
-  console.log("google")
-  console.log(this.google)
           fetch('/users/new-geo', {
             method: 'POST',
             headers: {
@@ -86,21 +83,16 @@ class GeoBragger extends React.Component {
 
       onMapClicked = (props) => {
     console.log("Map clicked -- ")  
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
     }
-
-    onMarkerClick = () => {
-      console.log("tenhle Marker Click")
-      if (this.state.showingInfo) {
-         this.setState({showingInfo:false}) 
-      } else {
-        this.setState({showingInfo:true}) 
-    }
-      }
-
+  }
 
   render() {
 
-console.log("Infowindow" + this.state.showingInfo)
 
     const style = {width: '95%', height: '50%', border: 'solid', marginRight: "auto", marginLeft: "auto"}
 
@@ -113,8 +105,8 @@ console.log("Infowindow" + this.state.showingInfo)
         </header>
         
         <div className="container">
-          <div className="row">
-            <div className="col-md-6 text-center" >
+          <div class="row">
+            <div class="col-md-6 text-center" >
               <Grid>
                 <Row className="show-grid">
                 <Col xs={12} md={12}>
@@ -127,22 +119,24 @@ console.log("Infowindow" + this.state.showingInfo)
           </div>
         </div>
 
-        <div className="mapa">
+        <div className="mapa" >
           <Map  google={this.props.google}
                 style={style}
-                zoom={5}
+                zoom={12}
                 onClick={this.onMapClicked()}
-                center={{lat: -33.86, lng: 151.057 }}>
-            <Marker position={{lat: -38.86 , lng: 151.20}} onClick={this.onMarkerClick} > 
-              <InfoWindow visible={this.showingInfo}>   
-                  <div>
-                    <h1>XX Name place</h1>
-                  </div>
-              </InfoWindow>
-            </Marker>
-              {this.state.users.map((users, index) => (
-                  <Marker key={index} position={{lat: users.Lat, lng: users.Lng}}> </Marker>
-                    ))}
+                center={{lat: 50.068, lng: 14.457 }}>
+   
+                  {this.state.users.map(users => (
+                      <Marker position={{lat: users.Lat, lng: users.Lng}}>
+                      </Marker>
+                        ))}
+                  <Marker position={{lat: -33.86 , lng: 151.20}} >   ///DEL????
+                    <InfoWindow onClose={this.onInfoWindowClose}>  
+                        <div>
+                          <h1>XX Name place</h1>
+                        </div>
+                    </InfoWindow>
+                  </Marker>
           </Map>
         </div>
 

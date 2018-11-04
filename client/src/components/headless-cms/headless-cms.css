@@ -1,0 +1,42 @@
+.Head{
+border: solid 1px aqua;
+border-radius: 5px;
+background-color: rgba(0, 216, 255, 0.05)
+}
+
+#alert{
+  margin-top: -20px;
+}
+
+.Headless-header {
+  text-align: center;
+  padding-top: 50px;
+
+  height: (100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Headless-header p {
+ padding: 20px;
+ font-size: 20px;
+}
+
+#image {
+  margin: 30px;
+  width: 80%;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+#headless-button{
+  margin: 10px;
+}
+
+

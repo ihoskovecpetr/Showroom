@@ -25,10 +25,13 @@ path {
     transition-delay: 5s;
 }
 
-#particles {
+canvas {
+    height: 600px;
+}
 
+#particles {
     width: '90%';
-    height: '50%';
+    height: '400px';
 }
 
 #loginParticles {

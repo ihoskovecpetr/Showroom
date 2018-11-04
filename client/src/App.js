@@ -7,13 +7,14 @@ import { Grid, Row , Col } from 'react-bootstrap';
 import { Route, NavLink, HashRouter} from "react-router-dom";
 
 import './App.css';
-import GeoBragger from './components/geobragger';
-import Game from './components/game';
-import RSS from './components/rss';
+import GeoBragger from './components/geo-bragger/geobragger';
+import Game from './components/game/game';
+import RSS from './components/rss/rss';
 import Animation from './components/animation/animation';
 import Draw from './components/draw/drawing';
 import GoldCoast from './components/gold-coast/gold-coast';
-import ReactMove from './components/react-move/react-move';
+import Particles from './components/particles/particles';
+import Headless from './components/headless-cms/headless-cms';
 
 
 
@@ -51,7 +52,6 @@ class App extends React.Component {
     return (
 
       <div className="App">
-      <h1 className="App-title">Technology stack!</h1>
         <header className="App-header">
         <Grid>
         <Row>
@@ -74,7 +74,6 @@ class App extends React.Component {
 
         <HashRouter>
                 <div>
-                  <h1></h1>
                   <ul className="header">
                   <li><NavLink to="/gold-coast">Gold Coast</NavLink></li>
                     <li><NavLink to="/geobragger">GeoBragger</NavLink></li>
@@ -82,7 +81,8 @@ class App extends React.Component {
                     <li><NavLink to="/rss">RSS</NavLink></li>
                     <li><NavLink to="/animation">Animation</NavLink></li>
                     <li><NavLink to="/draw">Drawing</NavLink></li>
-                    <li><NavLink to="/react-move">React-Move</NavLink></li>
+                    <li><NavLink to="/particles">Particles</NavLink></li>
+                    <li><NavLink to="/headless-cms">Headless-CMS</NavLink></li>
                   </ul>
                   <div className="content">
                     <Route exact path="/" component={GoldCoast}/>
@@ -92,7 +92,8 @@ class App extends React.Component {
                     <Route path="/rss" component={RSS}/>
                     <Route path="/animation" component={Animation}/>
                     <Route path="/draw" component={Draw}/>
-                    <Route path="/react-move" component={ReactMove}/>
+                    <Route path="/particles" component={Particles}/>
+                    <Route path="/headless-cms" component={Headless}/>
                   </div>
                 </div>
         </HashRouter>

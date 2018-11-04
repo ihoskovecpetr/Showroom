@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import { Grid, Row , Col , Button , ButtonToolbar, ButtonGroup} from 'react-bootstrap';
-import Animate from "react-move/Animate";
+import { Button , ButtonToolbar, ButtonGroup} from 'react-bootstrap';
 import Particles from 'react-particles-js';
 
-import './react-move.css';
-import { isAbsolute } from 'path';
+import './particles.css';
 
-
-export default class ReactMove extends React.Component {
+export default class particles extends React.Component {
 
   constructor(){
     super();
@@ -110,10 +105,11 @@ render() {
             		}
             	}}
               style={{
-                backgroundColor: "firebrick",
+                backgroundColor: "#00d8ff",
                 top: -95,
                 position: "relative",
                 zIndex: -2,
+                height: '600px',
               }}
             />
 
@@ -130,57 +126,9 @@ render() {
                   <br />
                   <input type="password" />
                   </div>
-                  <input type="submit" value="Login" />
+                  <Button bsStyle="primary">Login</Button>
               </form>
              </div>
-
-      <button onClick={updateShow}>Toggle</button>
-      <Animate
-        show={show}
-        start={{
-          opacity: 0,
-          width: 10,
-          backgroundColor: "#0000ff"
-        }}
-        enter={{
-          opacity: [1],
-          width: 300,
-          backgroundColor: ["#00ff00"],
-          timing: { duration: 2000 }
-        }}
-        update={{
-          // catch interrupts e.g. click button in middle of leave
-          opacity: [1],
-          width: 600,
-          backgroundColor: ["#992200"],
-          timing: { duration: 2000 }
-        }}
-        leave={{
-          opacity: [0.5],
-          width: 10,
-          backgroundColor: ["#ff0000"],
-          timing: { duration: 2000 }
-        }}
-      >
-        {({ opacity, backgroundColor, width }) => {
-          return (
-            <div
-              style={{
-                opacity,
-                width,
-                height: 200,
-                marginTop: 10,
-                color: "white",
-                backgroundColor
-              }}
-            >
-              {opacity.toFixed(3)}
-            </div>
-          );
-        }}
-      </Animate>
-      <hr />
-      <a href="https://react-move.js.org/#/">React-Move Documentation</a>
     </div>
   );
 }
